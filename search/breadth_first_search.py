@@ -6,7 +6,7 @@ class Queue():
     def __init__(self):
         self.items = []
 
-    def isEmpty(self):
+    def empty(self):
         return self.items == []
 
     def size(self):
@@ -35,6 +35,7 @@ def insert_to_open(open_list, s):  # Should be implemented according to the open
 # The function returns the best node in open (according to the search algorithm)
 def get_best(open_list):
     a_node = open_list.dequeue()
+    return a_node
 
 # The function returns neighboring locations of s_location
 def get_neighbors(grid, s_location):
