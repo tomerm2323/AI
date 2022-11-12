@@ -43,7 +43,7 @@ def get_neighbors(grid, s_location):
     cur_x, cur_y = s_location
     grid_size = grid.shape - np.array((1, 1))
     opt_pos = [(cur_x + 1, cur_y),
-                   (cur_x + 1 , cur_y + 1),
+                   (cur_x + 1, cur_y + 1),
                    (cur_x + 1, cur_y -1 ),
                    (cur_x, cur_y),
                    (cur_x , cur_y + 1),

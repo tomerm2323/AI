@@ -1,16 +1,53 @@
 import pandas as pd
 
+class PriorityQueue(object):
+    def __init__(self):
+        self.queue = []
+
+    def __str__(self):
+        return ' '.join([str(i) for i in self.queue])
+
+    # for checking if the queue is empty
+    def isEmpty(self):
+        return len(self.queue) == 0
+
+    # for inserting an element in the queue
+    def insert(self, node):
+        self.queue.append(node)
+
+    # for popping an element based on Priority
+    def delete(self):
+        if self.isEmpty():
+            return
+        try:
+            min_val = float("inf")
+            min_node_pos = None
+            for i in range(len(self.queue)):
+                node = self.queue[i]
+                f_val = node[0]
+                if f_val < min_val:
+                    min_val = f_val
+                    min_node_pos = i
+            item = self.queue[min_node_pos]
+            del self.queue[min_node_pos]
+            return item
+        except IndexError:
+            print()
+            exit()
+
+
 # The function initializes and returns open
 def init_open():
-    raise NotImplementedError
+    prq = PriorityQueue()
+    return prq
 
 # The function inserts s into open
 def insert_to_open(open_list, s):  # Should be implemented according to the open list data structure
-    raise NotImplementedError
+    open_list.insert(s)
 
 # The function returns the best node in open (according to the search algorithm)
 def get_best(open_list):
-    raise NotImplementedError
+    return open_list.delete()
 
 # The function returns neighboring locations of s_location
 def get_neighbors(grid, s_location):

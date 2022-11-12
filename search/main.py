@@ -49,13 +49,15 @@ def grid_test(test_num=1, print_route=False):
     #                 return False
     # return False
 
-print("------------------ Test 1 ------------------")
-print("Testing the search algorithms on first problem instance (running time may not be better for AStar Search):")
-# If you don't want to print the route, you may change print_route to False
-sanity = grid_test(1, print_route=True)
-print("First problem instance passed? ", sanity)
+if __name__ == '__main__':
 
-print("------------------ Test 2 ------------------")
-print("Testing the search algorithms on the second problem instance (running time should be better for AStar Search):")
-sanity = grid_test(2)
-print("Second problem instance passed? ", sanity)
+    print("------------------ Test 1 ------------------")
+    print("Testing the search algorithms on first problem instance (running time may not be better for AStar Search):")
+    # If you don't want to print the route, you may change print_route to False
+    sanity = grid_test(1, print_route=True)
+    print("First problem instance passed? ", sanity)
+
+    print("------------------ Test 2 ------------------")
+    print("Testing the search algorithms on the second problem instance (running time should be better for AStar Search):")
+    sanity = grid_test(2)
+    print("Second problem instance passed? ", sanity)
