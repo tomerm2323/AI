@@ -52,15 +52,15 @@ def get_neighbors(grid, s_location):
                    (cur_x - 1, cur_y - 1)
                ]
     for pos in opt_pos:
-        x, y =  pos
-        if x >= 0 and x <= grid_size[0] and y >= 0 and y <= grid_size[-1] and grid[x][y] != '@' :
+        x, y = pos
+        if x >= 0 and x <= grid_size[0] and y >= 0 and y <= grid_size[-1] and str(grid[x, y]) != '@':
             neighbors.append(pos)
     return neighbors
 
 # The function returns whether n_location should be generated (checks in open_list)
 # removes a node from open_list if needed 
 def check_for_duplicates_open(n_location, s, open_list):
-    return n_location in open_list
+    return n_location in open_list.items
 
   
 # The function returns whether n_location should be generated (checks in closed_list)
