@@ -11,16 +11,16 @@ ROUTE_LEN_2 = 291
 def grid_test(test_num=1, print_route=False):
     grid, start_location, end_location = create_grid(test_num)
 
-    # print("--- AStar solver ---")
-    # start_time = time.time()
-    # s_astar = astar.astar_search(grid, start_location, end_location)
-    # a_route = astar.get_route(s_astar)
-    # print("Route length:", len(a_route))
-    # tot1 = round(time.time() - start_time, 4)
-    # print("Running time:", tot1)
-    # if print_route:
-    #     print("AStar route: ")
-    #     astar.print_grid_route(a_route, copy.copy(grid))
+    print("--- AStar solver ---")
+    start_time = time.time()
+    s_astar = astar.astar_search(grid, start_location, end_location)
+    a_route = astar.get_route(s_astar)
+    print("Route length:", len(a_route))
+    tot1 = round(time.time() - start_time, 4)
+    print("Running time:", tot1)
+    if print_route:
+        print("AStar route: ")
+        astar.print_grid_route(a_route, copy.copy(grid))
 
     print("--- BFS solver ---")
     start_time = time.time()
@@ -36,18 +36,18 @@ def grid_test(test_num=1, print_route=False):
     # except:
     #     return False
     # print(len(b_route), len(a_route), tot1, tot2)
-    # if len(b_route) == len(a_route):
-    #     if test_num == 1:
-    #         if len(b_route) == ROUTE_LEN_1:
-    #             return True
-    #     elif test_num == 2:
-    #         if len(b_route) == ROUTE_LEN_2:
-    #             if tot1 < tot2:
-    #                 return True
-    #             else:
-    #                 print("Running time is too high for AStar search")
-    #                 return False
-    # return False
+    if len(b_route) == len(a_route):
+        if test_num == 1:
+            if len(b_route) == ROUTE_LEN_1:
+                return True
+        elif test_num == 2:
+            if len(b_route) == ROUTE_LEN_2:
+                if tot1 < tot2:
+                    return True
+                else:
+                    print("Running time is too high for AStar search")
+                    return False
+    return False
 
 if __name__ == '__main__':
 
