@@ -28,13 +28,13 @@ def calculate_heuristic(s_location, goal_location):
 
 # The function returns whether n_location should be generated (checks in open_list)
 # removes a node from open_list if needed 
-def check_for_duplicates_open(n_location, s, open_list)
+def check_for_duplicates_open(n_location, s, open_list):
     raise NotImplementedError
   
   
 # The function returns whether n_location should be generated (checks in closed_list)
 # removes a node from closed_list if needed  
-def check_for_duplicates_close(n_location, s, closed_list)
+def check_for_duplicates_close(n_location, s, closed_list):
     raise NotImplementedError
     
     
