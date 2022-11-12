@@ -29,8 +29,7 @@ def init_open():
 
 # The function inserts s into open
 def insert_to_open(open_list, s):  # Should be implemented according to the open list data structure
-    for node in s:
-        open_list.enqueue(node)
+    open_list.enqueue(s)
 
 # The function returns the best node in open (according to the search algorithm)
 def get_best(open_list):
