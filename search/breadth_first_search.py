@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import queue
 
 class Queue():
@@ -40,7 +41,7 @@ def get_best(open_list):
 def get_neighbors(grid, s_location):
     neighbors = []
     cur_x, cur_y = s_location
-    grid_size = (len(grid[0]),len(grid[1]))
+    grid_size = grid.shape - np.array((1, 1))
     opt_pos = [(cur_x + 1, cur_y),
                    (cur_x + 1 , cur_y + 1),
                    (cur_x + 1, cur_y -1 ),
