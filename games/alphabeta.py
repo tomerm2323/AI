@@ -19,22 +19,37 @@ def recursive_alphabeta(current_game, alpha, beta):
     if current_game.game_over():
         return current_game.get_score(), []
     if current_game.get_cur_player() == 1:  # -- MIN player --
-        v = current_game.max_steps() + 1
-        moves = current_game.get_moves()
-        for move in moves:
-            mx, prev_moves = recursive_alphabeta(move, alpha, beta)
-            if v > mx:
-                v = mx
-                best_move = move
-                best_prev_move = prev_moves
+        for i in range(2):
+            v = current_game.max_steps() + 1
+            alpha = max(alpha, v)
+            moves = current_game.get_moves()
+            for move in moves:
+                if alpha >= beta:
+                    break
+                mx, prev_moves = recursive_alphabeta(move, alpha, beta)
+                if v > mx:
+                    v = mx
+                    best_move = move
+                    best_prev_move = prev_moves
+            if i == 0:
+                try:
+                    best_prev_move.append(best_move)
+                except:
+                    best_prev_move = []
     if current_game.get_cur_player() == 2:  ## -- MAX player --
         v = 0
         moves = current_game.get_moves()
+        beta = min(beta, v)
         for move in moves:
+            if alpha >= beta:
+                break
             mx, prev_moves = recursive_alphabeta(move, alpha, beta)
             if v < mx:
                 v = mx
                 best_move = move
                 best_prev_move = prev_moves
-    best_prev_move.append(best_move)
+    try:
+        best_prev_move.append(best_move)
+    except:
+        best_prev_move = []
     return v, best_prev_move
