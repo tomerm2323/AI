@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 class PriorityQueue(object):
     def __init__(self):
@@ -103,7 +102,7 @@ def check_for_duplicates_close(n_location, s, closed_list):
     if n_location in closed_list:
         return True
     return False
-
+    
 # Locations are tuples of (x, y)
 def astar_search(grid, start_location, goal_location):
     # State = (f, h, g, x, y, s_prev) # f = g + h (For Priority Queue)
